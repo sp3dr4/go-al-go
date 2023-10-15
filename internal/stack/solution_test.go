@@ -10,21 +10,21 @@ func TestStack(t *testing.T) {
 	v.Push(9)
 	expectLen(t, v, 3)
 
-	expectPop[int](t, v, 9)
+	expectPop(t, v, 9)
 	expectLen(t, v, 2)
 
 	v.Push(11)
-	expectPop[int](t, v, 11)
-	expectPop[int](t, v, 7)
-	expectPeek[int](t, v, 5)
-	expectPop[int](t, v, 5)
+	expectPop(t, v, 11)
+	expectPop(t, v, 7)
+	expectPeek(t, v, 5)
+	expectPop(t, v, 5)
 	if _, err := v.Pop(); err == nil {
 		t.Errorf("Expected error, got nil")
 	}
 	expectLen(t, v, 0)
 
 	v.Push(69)
-	expectPeek[int](t, v, 69)
+	expectPeek(t, v, 69)
 	expectLen(t, v, 1)
 }
 
