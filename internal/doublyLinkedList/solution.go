@@ -84,10 +84,6 @@ func (l *DoublyLinkedList[T]) InsertAt(item T, idx int) error {
 		return nil
 	}
 
-	// curr := l.head
-	// for i := 0; i < idx; i++ {
-	// 	curr = curr.next
-	// }
 	curr, err := l.getAt(idx)
 	if err != nil {
 		return err
@@ -118,29 +114,6 @@ func (l *DoublyLinkedList[T]) Remove(item T) (T, error) {
 		var empty T
 		return empty, errors.New("item not found")
 	}
-	// if found == l.head && found == l.tail {
-	// 	l.head = nil
-	// 	l.tail = nil
-	// } else {
-	// 	if found.prev != nil {
-	// 		found.prev.next = found.next
-	// 	}
-	// 	if found.next != nil {
-	// 		found.next.prev = found.prev
-	// 	}
-	// 	if found == l.head {
-	// 		l.head = found.next
-	// 	}
-	// 	if found == l.tail {
-	// 		l.tail = found.prev
-	// 	}
-
-	// 	found.prev = nil
-	// 	found.next = nil
-	// }
-
-	// l.length -= 1
-	// return found.value, nil
 	return l.removeNode(found)
 }
 
